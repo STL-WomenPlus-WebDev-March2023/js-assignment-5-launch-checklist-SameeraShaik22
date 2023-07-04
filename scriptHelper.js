@@ -20,7 +20,9 @@ function validateInput(testInput) {
     if(testInput===""||testInput===null){
 return "Empty"
     }
-    if(typeof testInput===number){
+   
+    if((!isNaN(Number(testInput)))){
+        
 return "Is a Number"
     }
     if (typeof testInput===string){
@@ -30,7 +32,14 @@ return "Is a Number"
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+    if(validateInput(pilot)==="Empty"||validateInput(copilot)==="Empty"||validateInput(fuelLevel)==="Empty"||
+    validateInput(cargoLevel)==="Empty"){
+        alert("Please enter all Fields")
+    }
+if(validateInput(pilot)==="Is a Number"||validateInput(copilot)==="Is a Number"){
+    alert("Please enter String for Pilot and CoPilot")
+}
+
 }
 
 async function myFetch() {
