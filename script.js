@@ -5,6 +5,7 @@ window.addEventListener("load", function() {
     let button = document.getElementById("formSubmit");
 
     button.addEventListener("click", function () {
+        event.preventDefault(); 
 
 let pilotName = document.getElementById("pilotName")
         

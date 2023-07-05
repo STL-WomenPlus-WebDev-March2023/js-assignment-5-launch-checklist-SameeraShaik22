@@ -21,7 +21,7 @@ function validateInput(testInput) {
 return "Empty"
     }
    
-    if((!isNaN(Number(testInput)))){
+    if(!isNaN(Number(testInput))){
         
 return "Is a Number"
     }
@@ -31,16 +31,22 @@ return "Is a Number"
    
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) { 
+    alert(!isNaN(Number(pilot)))
+    alert(!isNaN(Number(copilot)))
+    alert(validateInput(pilot)==="Is a Number")
+    alert(validateInput(copilot)==="Is a Number")
+
     if(validateInput(pilot)==="Empty"||validateInput(copilot)==="Empty"||validateInput(fuelLevel)==="Empty"||
     validateInput(cargoLevel)==="Empty"){
         alert("Please enter all Fields")
     }
-if(validateInput(pilot)==="Is a Number"||validateInput(copilot)==="Is a Number"){
-    alert("Please enter String for Pilot and CoPilot")
+    
+else if(validateInput(pilot)==="Is a Number"||validateInput(copilot)==="Is a Number"){   
+    alert("Please enter String for Pilot and CoPilot") }
 }
 
-}
+
 
 async function myFetch() {
     let planetsReturned;
