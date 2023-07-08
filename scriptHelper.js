@@ -15,36 +15,34 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 <img src="">
    */
 }
-
 function validateInput(testInput) {
-    if(testInput===""||testInput===null){
-return "Empty"
-    }
-   
-    if(!isNaN(Number(testInput))){
+        if(testInput===undefined||testInput.trim()===""){
+         return "Empty" 
+        }
+          if(false===isNaN(testInput)){
+            return "Is a Number"
+          }
+          if(true===isNaN(testInput)){
+            return "Not a Number"
+          }
         
-return "Is a Number"
     }
-    if (typeof testInput===string){
-        return "Not a Number"
-    }
-   
-}
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) { 
-    alert(!isNaN(Number(pilot)))
-    alert(!isNaN(Number(copilot)))
-    alert(validateInput(pilot)==="Is a Number")
-    alert(validateInput(copilot)==="Is a Number")
-
-    if(validateInput(pilot)==="Empty"||validateInput(copilot)==="Empty"||validateInput(fuelLevel)==="Empty"||
-    validateInput(cargoLevel)==="Empty"){
-        alert("Please enter all Fields")
-    }
     
-else if(validateInput(pilot)==="Is a Number"||validateInput(copilot)==="Is a Number"){   
-    alert("Please enter String for Pilot and CoPilot") }
+  if(validateInput(pilot)==="Empty"||validateInput(pilot)==="Empty"||validateInput(pilot)==="Empty"||validateInput(pilot)==="Empty"){
+    alert("Please Enter all fields")
+  } 
+  if(validateInput(pilot)==="Is a Number"||validateInput(pilot)==="Is a Number"){
+    alert("Please Enter a String for Pilot and Copilot")
+  }  
+  if(validateInput(fuelLevel)==="Not a Number"||validateInput(cargoLevel)==="Not a Number"){
+    alert("Please Enter a Number for FuelLevel abd Corgomass")
+  }  
+  
 }
+
+
 
 
 
