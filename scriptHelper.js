@@ -48,28 +48,50 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  
      let copilotStatus=document.getElementById("copilotStatus")
      copilotStatus.innerHTML=`CoPilot ${copilot} is ready to Launch` 
+
+
+     if(fuelLevel<10000 && cargoLevel>10000){
+   launchStatus.innerHTML="Shuttle not ready for launch"  
+   let faultyItems=document.getElementById("faultyItems")
+   faultyItems.style.visibility="visible"
+   let fuelStatus=document.getElementById("fuelStatus")
+   fuelStatus.innerHTML="Fuel level low to Launch"
+
+   let cargoStatus=document.getElementById("cargoStatus")
+   cargoStatus.innerHTML=" There is too much mass."
+   launchStatus.style.color="#C7254E"
+   
+   }
     
-    if(fuelLevel<10000){
+    else if(fuelLevel<10000  && cargoLevel<=10000 ){
     launchStatus.innerHTML="Shuttle not ready for launch"  
     let faultyItems=document.getElementById("faultyItems")
     faultyItems.style.visibility="visible"
     let fuelStatus=document.getElementById("fuelStatus")
     fuelStatus.innerHTML="Fuel level low to Launch"
+
+    let cargoStatus=document.getElementById("cargoStatus")
+    cargoStatus.innerHTML="Cargo Mass is good enough for launch."
     launchStatus.style.color="#C7254E"
     }
  
-     else if(cargoLevel>10000) {
+     else if(fuelLevel>=10000 && cargoLevel>10000) {
      launchStatus.innerHTML="Shuttle not ready for launch" 
      let faultyItems=document.getElementById("faultyItems")
+     fuelStatus.innerHTML="Fuel level is good to Launch"
     faultyItems.style.visibility="visible"
     let cargoStatus=document.getElementById("cargoStatus")
-    cargoStatus.innerHTML=" There is too much mass for the shuttle to take off."
+    cargoStatus.innerHTML=" There is too much mass."
     launchStatus.style.color="#C7254E"
     }
     else if(fuelLevel>=10000 && cargoLevel<=10000){
      let faultyItems=document.getElementById("faultyItems")
      faultyItems.style.visibility="visible"
      let launchStatus=document.getElementById("launchStatus")
+     let fuelStatus=document.getElementById("fuelStatus")
+     fuelStatus.innerHTML="Fuel level is good to Launch"
+     let cargoStatus=document.getElementById("cargoStatus")
+     cargoStatus.innerHTML="Cargo Mass is good enough for Launch."
      launchStatus.innerHTML="Shuttle is ready for launch" 
      launchStatus.style.color="#419F6A" 
      }
