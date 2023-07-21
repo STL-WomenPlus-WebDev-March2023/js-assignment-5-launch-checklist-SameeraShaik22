@@ -58,7 +58,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     launchStatus.style.color="#C7254E"
     }
  
-    if(cargoLevel>10000) {
+     else if(cargoLevel>10000) {
      launchStatus.innerHTML="Shuttle not ready for launch" 
      let faultyItems=document.getElementById("faultyItems")
     faultyItems.style.visibility="visible"
@@ -66,7 +66,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     cargoStatus.innerHTML=" There is too much mass for the shuttle to take off."
     launchStatus.style.color="#C7254E"
     }
-    if(fuelLevel>=10000 && cargoLevel>=10000){
+    else if(fuelLevel>=10000 && cargoLevel<=10000){
      let faultyItems=document.getElementById("faultyItems")
      faultyItems.style.visibility="visible"
      let launchStatus=document.getElementById("launchStatus")
